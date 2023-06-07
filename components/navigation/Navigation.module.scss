@@ -1,0 +1,20 @@
+@import "@styles/utilities";
+
+.menu {
+}
+.menu-item {
+    user-select: none;
+    .Button_icon__gqW68 {
+        transform: rotate(90deg);
+    }
+}
+
+.menu {
+    position: fixed;
+    min-width: 200px;
+    background-color: palette(common, white);
+    border-top: 1px solid palette(neutral, 05);
+    padding: $size-4;
+    box-shadow: $shadow-lg;
+    border-radius: $radius-md;
+}

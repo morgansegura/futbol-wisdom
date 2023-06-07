@@ -1,0 +1,26 @@
+@import "@styles/colors";
+
+@mixin colorClassName($type) {
+    @each $name, $color in $palette {
+        @each $shade, $value in $color {
+            @if ($type == "bg") {
+                // @error $shade;
+                .bg-#{$name}-#{$shade} {
+                    background-color: $value;
+                }
+            } @else if ($type == "color") {
+                .color-#{$name}-#{$shade} {
+                    color: $value;
+                }
+            } @else if ($type == "fill") {
+                .fill-#{$name}-#{$shade} {
+                    fill: $value;
+                }
+            } @else if ($type == "border") {
+                .border-#{$name}-#{$shade} {
+                    border-color: $value;
+                }
+            }
+        }
+    }
+}

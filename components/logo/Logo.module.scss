@@ -1,0 +1,65 @@
+@import "@styles/utilities";
+
+.container {
+    div {
+        display: flex;
+        align-items: center;
+        user-select: none;
+    }
+}
+
+.image,
+.title {
+}
+
+.image {
+    // position: relative;
+    display: flex;
+    img {
+        height: inherit;
+    }
+
+    & ~ .text,
+    & ~ .title {
+        position: relative;
+        margin-left: $size-1-5;
+        padding-left: $size-1-5;
+        &:before {
+            position: absolute;
+            content: "";
+            left: 0;
+            height: 100%;
+            border-radius: 10px;
+            width: 2px;
+            background-color: palette(neutral, 10);
+        }
+    }
+}
+.title {
+    font-family: $font-serif;
+    @include fontSizing($font-size-2xl, $line-height-none, $font-weight-bold);
+
+    & ~ .text {
+        position: relative;
+        margin-left: $size-1-5;
+        padding-left: $size-1-5;
+        &:before {
+            position: absolute;
+            content: "";
+            left: 0;
+            height: 100%;
+            border-radius: 10px;
+            width: 2px;
+            background-color: palette(neutral, 10);
+        }
+    }
+}
+.text {
+    display: flex;
+    align-items: center;
+
+    color: palette(common, ebony);
+    // font-family: $font-serif;
+    text-transform: uppercase;
+    @include fontSizing($font-size-lg, $line-height-none, $font-weight-black);
+}

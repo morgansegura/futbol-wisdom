@@ -1,0 +1,5 @@
+@import "@styles/colors";
+
+@function palette($base, $color) {
+    @return map-get(map-get($palette, $base), $color);
+}

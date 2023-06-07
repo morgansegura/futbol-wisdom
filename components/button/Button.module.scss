@@ -1,0 +1,32 @@
+@import "@styles/utilities";
+
+.selector {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+.icon--left,
+.icon--right {
+    display: flex;
+    align-items: center;
+}
+
+.label {
+    .icon--left & {
+        order: 2;
+        margin-left: $size-1;
+    }
+    .icon--right & {
+        order: 1;
+        margin-right: $size-1;
+    }
+}
+.icon {
+    .icon--left & {
+        order: 1;
+    }
+    .icon--right & {
+        order: 2;
+    }
+}

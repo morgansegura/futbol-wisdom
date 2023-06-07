@@ -1,0 +1,46 @@
+{
+    "name": "2023",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "lint": "next lint",
+        "dev:tina": "tinacms dev",
+        "dev:next": "next dev",
+        "dev:storybook": "storybook dev -p 3001",
+        "build:tina": "tinacms build",
+        "build:next": "next build",
+        "build:storybook": "storybook build",
+        "dev": "concurrently \"npm run dev:tina\" \"npm run dev:next\"",
+        "build": "concurrently \"npm run build:tina\" \"npm run build:next\""
+    },
+    "dependencies": {
+        "@tinacms/cli": "^1.5.12",
+        "@types/node": "20.1.2",
+        "@types/react": "18.2.6",
+        "@types/react-dom": "18.2.4",
+        "clsx": "^1.2.1",
+        "eslint": "8.40.0",
+        "next": "^13.4.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-icons": "^4.8.0",
+        "react-tinacms-field-condition": "^0.2.5",
+        "react-use": "^17.4.0",
+        "tinacms": "^1.5.5",
+        "typescript": "5.0.4"
+    },
+    "devDependencies": {
+        "@storybook/addon-essentials": "^7.0.10",
+        "@storybook/addon-interactions": "^7.0.10",
+        "@storybook/addon-links": "^7.0.10",
+        "@storybook/blocks": "^7.0.10",
+        "@storybook/nextjs": "^7.0.10",
+        "@storybook/react": "^7.0.10",
+        "@storybook/testing-library": "^0.0.14-next.2",
+        "concurrently": "^8.0.1",
+        "eslint-config-next": "^13.4.2",
+        "eslint-plugin-storybook": "^0.6.12",
+        "sass": "^1.62.1",
+        "storybook": "^7.0.10"
+    }
+}
