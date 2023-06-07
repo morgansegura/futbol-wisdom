@@ -6,7 +6,8 @@ import { imageFields } from "./fields/media";
 import { contentTemplate } from "./fields/content";
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
+const branch =
+    process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "master";
 
 const globalFields: any = [
     {
