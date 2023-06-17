@@ -1,4 +1,4 @@
-import { Mulish, Noto_Serif } from "next/font/google";
+import { Mulish, Noto_Serif, Roboto_Mono } from "next/font/google";
 
 export const sans = Mulish({
     subsets: ["latin"],
@@ -12,4 +12,10 @@ export const serif = Noto_Serif({
     weight: ["400", "700"],
     display: "swap",
     variable: "--font-serif",
+});
+
+export const mono = Roboto_Mono({
+    subsets: ["latin"],
+    display: "swap",
+    variable: "--font-mono",
 });

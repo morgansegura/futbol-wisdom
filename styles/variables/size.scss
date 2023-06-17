@@ -1,0 +1,69 @@
+$spaces: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+    20;
+
+$sides: (
+    "t": "top",
+    "r": "right",
+    "b": "bottom",
+    "l": "left",
+);
+
+@each $space in $spaces {
+    .m-#{$space} {
+        margin: rem($space * 8);
+    }
+
+    .mx-#{$space} {
+        margin-left: rem($space * 8);
+        margin-right: rem($space * 8);
+    }
+
+    .my-#{$space} {
+        margin-top: rem($space * 8);
+        margin-bottom: rem($space * 8);
+    }
+
+    .px-#{$space} {
+        padding-left: rem($space * 8);
+        padding-right: rem($space * 8);
+    }
+
+    .py-#{$space} {
+        padding-top: rem($space * 8);
+        padding-bottom: rem($space * 8);
+    }
+
+    .p-#{$space} {
+        padding: rem($space * 8);
+    }
+
+    @each $letter, $word in $sides {
+        .m#{str-slice($letter, 0, 1)}-#{$space} {
+            margin-#{$word}: rem($space * 8);
+        }
+
+        .p#{str-slice($letter, 0, 1)}-#{$space} {
+            padding-#{$word}: rem($space * 8);
+        }
+    }
+}
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.mx-auto {
+    margin-right: auto;
+    margin-left: auto;
+}
+.mt-auto {
+    margin-top: auto;
+}
+.mr-auto {
+    margin-right: auto;
+}
+.mb-auto {
+    margin-bottom: auto;
+}
+.ml-auto {
+    margin-left: auto;
+}

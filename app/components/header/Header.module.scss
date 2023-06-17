@@ -1,0 +1,169 @@
+@import "@styles/utilities";
+
+.header {
+    // position: fixed;
+    // right: 0;
+    // left: 0;
+    // background-color: rgba(palette(neutral, 05), 0.5);
+    border-bottom: 1px solid palette(neutral-500, 0.25);
+}
+.container {
+    display: grid;
+    align-items: center;
+    border-radius: $radius-lg;
+    grid-template-columns: 1fr 1fr;
+    @include size(py, 24);
+    @include lg {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+// [Nav Main]
+
+.is--mobile {
+    @include between(0px, calc($breakpoint-lg - 1px)) {
+        display: flex;
+    }
+    @include lg {
+        display: none;
+    }
+}
+
+.is--desktop {
+    @include between(0px, calc($breakpoint-lg - 1px)) {
+        display: none;
+    }
+    @include lg {
+        display: grid;
+    }
+}
+
+.desktop-nav {
+    grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+    // column-gap: $size-1;
+    &.main-nav {
+        align-self: center;
+
+        & > div,
+        & > a {
+        }
+    }
+    .selector {
+    }
+}
+
+.mobile-nav {
+}
+
+.desktop__nav__main,
+.desktop__nav__social,
+.mobile__nav__social {
+    .nav__item {
+        &:not(:first-child) {
+            @include size(ml, 16);
+        }
+
+        svg {
+            font-size: 20px;
+        }
+    }
+}
+
+.desktop__nav__main {
+    justify-self: center;
+}
+
+.desktop__nav__social {
+    justify-self: flex-end;
+}
+
+.mobile__nav__main .nav__item,
+.desktop__nav__main .nav__item {
+    @include fontSizing($font-xs, $leading-none, $font-black, $tracking-tight);
+    color: palette(neutral-600);
+}
+
+.desktop__nav__main .nav__item {
+    align-items: center;
+    text-transform: uppercase;
+
+    svg {
+        display: flex;
+        @include size(ml, 4);
+        font-size: $font-md;
+
+        .active & {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.drowpdown-menu {
+    position: fixed;
+    top: 50px;
+    right: 22px;
+    min-width: 200px;
+    background-color: palette(white);
+    border-top: 1px solid palette(neutral-50);
+    @include size(p, 32);
+    box-shadow: $shadow-lg;
+    border-radius: $radius-md;
+}
+
+.mobile__nav__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mobile__nav__main .nav__item {
+    display: flex;
+    align-items: center;
+    @include size(py, 8);
+    transition: border-color $duration-normal $ease-out;
+
+    &:last-child {
+        @include size(mb, 24);
+    }
+
+    // border-bottom: 1px dashed palette(blue, 10);
+}
+
+.hamburger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-end;
+    z-index: $z-20;
+    cursor: pointer;
+
+    svg {
+        position: relative;
+        z-index: $z-10;
+        font-size: 20px;
+        transition: transform $duration-normal $ease-in,
+            fill $duration-normal $ease-in;
+    }
+
+    &.inactive {
+        svg {
+            fill: palette(neutral-800);
+            transform: scale(1);
+            transition: transform $duration-normal $ease-in,
+                fill $duration-normal $ease-in;
+        }
+    }
+    &.active {
+        svg {
+            fill: palette(black);
+            transform: scale(0.85);
+            transition: transform $duration-normal $ease-out,
+                fill $duration-normal $ease-out;
+        }
+    }
+
+    @include lg {
+        display: none;
+    }
+}

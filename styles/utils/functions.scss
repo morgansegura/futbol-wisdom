@@ -1,0 +1,18 @@
+@use "sass:math";
+
+@function stripUnit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+// to Rem with fallback
+@function rem($n) {
+    $font-base: 16px;
+
+    @if (type-of($n) == number) {
+        @return math.div(stripUnit($n), stripUnit($font-base)) * 1rem;
+    } @else if (type-of($n) == string) {
+        @if ($n == "auto" or $n == "unset" or $n == "inherit") {
+            @return #{$n};
+        }
+    }
+}

@@ -1,10 +1,6 @@
-@import "utilities";
-
-
-:root {
-    --font-sans: var(--font-assistant)
-    --font-serif: var(--font-noto-serif)
-}
+@import "@styles/utilities";
+@import "@styles/variables/tina";
+@import "@styles/utils/normalize";
 
 html {
     -webkit-text-size-adjust: 100%;
@@ -19,13 +15,8 @@ body {
     margin: 0;
     text-rendering: optimizeSpeed;
     font-family: $font-sans;
-    color: palette(common, ebony);
-    background: palette(neutral, 05)
-        // linear-gradient(
-        //     to top,
-        //     rgba(palette(neutral, 10), 0.5) 0%,
-        //     palette(neutral, 05)
-        // );
+    color: palette(black);
+    background: palette(neutral-50);
 }
 
 body[data-context="mobile-native"] {
@@ -68,7 +59,7 @@ code,
 kbd,
 samp,
 pre {
-    font-family: palette(common, ebony);
+    font-family: palette(neutral-900);
     font-size: 1em;
 }
 
@@ -203,7 +194,7 @@ textarea {
 input::placeholder,
 textarea::placeholder {
     opacity: 1;
-    color: palette(common, white);
+    color: palette(white);
 }
 
 button,
@@ -246,7 +237,7 @@ video {
 
 :is(a, button, input, textarea, select):focus-visible {
     outline-width: 3px;
-    outline-color: palette(cyan, 30);
+    outline-color: palette(cyan-400);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -262,12 +253,4 @@ video {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-}
-
-.__tina-quick-editing-enabled [data-tina-field] {
-    outline: 2px dashed rgba(palette(green, 10), 0);
-}
-.__tina-quick-editing-enabled [data-tina-field]:hover {
-    outline: 2px dashed rgba(palette(green, 20), 1);
-    box-shadow: inset 100vi 100vh rgba(palette(green, 30), 0.15);
 }

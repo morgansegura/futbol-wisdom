@@ -1,0 +1,11 @@
+.__tina-quick-editing-enabled [data-tina-field] {
+    // @apply outline-2 outline-dashed outline-transparent shadow-transparent bg-transparent transition-all ease-in duration-100;
+    outline: 2px dashed rgba(palette(success-200), 0);
+    transition: outline $duration-normal $ease-out;
+    box-shadow: inset 100vi 100vh rgba(palette(success-200), 0);
+}
+.__tina-quick-editing-enabled [data-tina-field]:hover {
+    // @apply outline-dashed outline-teal-200 bg-teal-200 bg-opacity-25;
+    outline: 2px dashed rgba(palette(success-200), 1);
+    box-shadow: inset 100vi 100vh rgba(palette(success-200), 0.2);
+}

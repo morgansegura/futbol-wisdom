@@ -1,10 +1,10 @@
-import { sans, serif } from "./fonts";
+import { mono, sans, serif } from "./fonts";
 // [Hooks]
 import { useGlobalData } from "@hooks/useData";
 
 // [Components]
-import Header from "@components/header/Header";
-import Footer from "@components/footer/Footer";
+import Header from "@app/components/header/Header";
+import Footer from "@app/components/footer/Footer";
 
 // [Assets]
 import clsx from "clsx";
@@ -22,7 +22,7 @@ export default async function RootLayout({
         <>
             <html
                 lang="en"
-                className={clsx(sans.variable, serif.variable)}
+                className={clsx(mono.variable, sans.variable, serif.variable)}
             >
                 <body>
                     <div className={s.wrapper}>

@@ -1,0 +1,117 @@
+@import "@styles/utilities";
+
+.inline {
+    overflow: hidden;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.fullwidth {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.child {
+    pointer-events: none;
+    user-select: none;
+    z-index: 3;
+}
+
+.sm,
+.md,
+.lg {
+    line-height: $leading-normal;
+    letter-spacing: $tracking-wide;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+    min-width: 64px;
+    border-radius: 4px;
+}
+.sm {
+    font-size: 0.8125rem;
+    padding: 4px 5px;
+}
+.md {
+    font-size: 0.875rem;
+    padding: 6px 8px;
+}
+.lg {
+    font-size: 0.9375rem;
+    padding: 8px 11px;
+}
+
+@each $color, $value in colorMap($paletteObj, 10) {
+    .contained-#{$color} {
+        user-select: none;
+        cursor: pointer;
+        border: 1px solid $value;
+        background-color: $value;
+        @include text-contrast($value);
+        transition: background-color $duration-normal $ease-out;
+
+        &:hover {
+            @include hover-contrast($value);
+            // color: rgba($value, 0.04);
+            // border-color: rgba($value, 0.04);
+        }
+        &.ripple {
+            @include ripple($value);
+        }
+    }
+
+    .disabled-contained-#{$color} {
+        user-select: none;
+        pointer-events: none;
+        cursor: default;
+        color: rgba($value, 0.26);
+        background-color: rgba($value, 0.12);
+    }
+
+    .outlined-#{$color} {
+        user-select: none;
+        cursor: pointer;
+        border: 1px solid rgba($value, 0.5);
+        color: $value;
+        transition: border-color $duration-normal $ease-out,
+            background-color $duration-normal $ease-out;
+
+        &:hover {
+            border-color: $value;
+            background-color: rgba($value, 0.04);
+        }
+        &.ripple {
+            @include ripple($value);
+        }
+    }
+    .disabled-outlined-#{$color} {
+        user-select: none;
+        pointer-events: none;
+        cursor: default;
+        color: rgba($value, 0.26);
+        border: 1px solid rgba($value, 0.12);
+    }
+    .text-#{$color} {
+        user-select: none;
+        cursor: pointer;
+        color: $value;
+        border: 1px solid transparent;
+        @include size("m", 110);
+        transition: color $duration-normal $ease-out,
+            background-color $duration-normal $ease-out;
+
+        &:hover {
+            background-color: rgba($value, 0.04);
+        }
+        &.ripple {
+            @include ripple($value);
+        }
+    }
+    .disabled-text-#{$color} {
+        user-select: none;
+        pointer-events: none;
+        cursor: default;
+        color: rgba($value, 0.26);
+        border: 1px solid transparent;
+    }
+}

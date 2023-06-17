@@ -1,0 +1,185 @@
+// .footer {
+// }
+// .footer-container {
+// }
+
+// .logo {
+//     margin-top: 10px;
+//     margin-bottom: 20px;
+// }
+
+// .nav-main-container {
+//     // border-top: 1px solid palette(neutral, 10);
+//     // border-bottom: 1px solid palette(neutral, 10);
+//     width: 100%;
+//     margin-bottom: $size-5;
+// }
+
+// .nav__main {
+//     display: flex;
+//     justify-content: center;
+//     padding-top: $size-2-5;
+//     padding-bottom: $size-2-5;
+//     text-transform: uppercase;
+//     @include fontSizing(
+//         $font-xs,
+//         $leading-normal,
+//         $font-semibold,
+//         $tracking-wide
+//     );
+// }
+
+// .nav__main .nav__item {
+//     position: relative;
+
+//     &:not(:first-child) {
+//         margin-left: $size-4;
+//     }
+//     &:before {
+//         content: "";
+//         position: absolute;
+//         right: 0;
+//         top: $size-2-5;
+//         left: 0;
+//         height: 1px;
+//         background-color: transparent;
+//         transition: background-color $duration-normal $ease-out;
+//     }
+
+//     &:hover {
+//         &:before {
+//             background-color: palette(neutral, 20);
+//         }
+//     }
+// }
+
+// .nav__social {
+//     display: flex;
+//     justify-content: center;
+// }
+// .nav__social .nav__item {
+//     margin-bottom: $size-5;
+//     svg {
+//         fill: palette(neutral, 30);
+//         transition: fill $duration-normal $ease-out;
+//     }
+//     &:not(:first-child) {
+//         margin-left: $size-1-5;
+//     }
+//     &:hover {
+//         svg {
+//             fill: palette(brand, ice);
+//         }
+//     }
+// }
+// .nav__legal {
+//     text-align: center;
+//     margin-bottom: $size-3;
+// }
+// .nav__legal .nav__item {
+//     color: palette(neutral, 30);
+//     @include fontSizing(
+//         $font-sm,
+//         $leading-normal,
+//         $font-semibold
+//     );
+//     &:not(:first-child) {
+//         margin-left: $size-1-5;
+//     }
+//     transition: color $duration-normal $ease-out;
+//     &:hover {
+//         color: palette(neutral, 70);
+//     }
+// }
+
+// .copyright {
+//     @include fontSizing(
+//         $font-xs,
+//         $leading-normal,
+//         $font-medium
+//     );
+//     .symbol {
+//         padding-right: $size-1;
+//     }
+//     .date {
+//         padding-right: $size-1;
+//     }
+//     .text {
+//         padding-right: $size-1;
+//     }
+// }
+
+// .subscribe-form {
+//     display: flex;
+//     flex-direction: column;
+
+//     .title {
+//         @include fontSizing(22px, 26px, 600);
+//     }
+
+//     .copy {
+//         @include fontSizing(16px, 24px, 400);
+//     }
+
+//     .form {
+//         display: grid;
+//         justify-self: center;
+//         grid-template-columns: minmax(200px, 320px) minmax(80px, 100px);
+//         column-gap: $size-1;
+//     }
+
+//     .text-input {
+//         padding: $size-1-5 0 $size-1-5 $size-1-5;
+//         border-radius: $radius-sm;
+//         outline: none;
+//     }
+
+//     .placeholder {
+//         position: absolute;
+//         left: $size-1-5;
+//         transition: opacity $duration-normal $ease-out;
+
+//         &.active {
+//             opacity: 0;
+//         }
+//     }
+//     .control {
+//         position: relative;
+//         display: grid;
+//         align-items: center;
+//     }
+
+//     .submit {
+//         @include fontSizing(
+//             $font-xs,
+//             $leading-normal,
+//             $font-medium
+//         );
+//         text-transform: uppercase;
+//         background-color: palette(brand, ice);
+//         display: inline-flex;
+//         justify-content: center;
+//         align-items: center;
+//         padding-right: $size-2-5;
+//         padding-left: $size-2-5;
+//         color: palette(common, white);
+//         border-radius: $radius-sm;
+//         transition: background-color $duration-normal $ease-out;
+
+//         &:hover {
+//             background-color: palette(blue, 30);
+//         }
+//     }
+// }
+
+// .grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//     grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+//     column-gap: 10px;
+//     row-gap: 10px;
+
+//     div {
+//         background-color: yellow;
+//     }
+// }

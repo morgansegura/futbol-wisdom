@@ -1,0 +1,199 @@
+@mixin skeleton($theme: "light") {
+    @if ($theme == "dark") {
+        animation: skeleton-loading-dark 1s linear infinite alternate;
+    } @else {
+        animation: skeleton-loading-light 1s linear infinite alternate;
+    }
+}
+
+// Spacing
+@mixin size($type: "p", $a, $b: null, $c: null, $d: null) {
+    @if ($type == "m") {
+        @if ($a and $b and $c and $d) {
+            margin: rem($a) rem($b) rem($c) rem($d);
+        } @else if ($a and $b and $c) {
+            margin: rem($a) rem($b) rem($c);
+        } @else if ($a and $b) {
+            margin: rem($a) rem($b);
+        } @else {
+            margin: rem($a);
+        }
+    }
+    @if ($type == "mt" or $type == "my") {
+        margin-top: rem($a);
+    }
+    @if ($type == "mb" or $type == "my") {
+        margin-bottom: rem($a);
+    }
+    @if ($type == "mr" or $type == "mx") {
+        margin-right: rem($a);
+    }
+    @if ($type == "ml" or $type == "mx") {
+        margin-left: rem($a);
+    }
+    @if ($type == "p") {
+        @if ($a and $b and $c and $d) {
+            padding: rem($a) rem($b) rem($c) rem($d);
+        } @else if ($a and $b and $c) {
+            padding: rem($a) rem($b) rem($c);
+        } @else if ($a and $b) {
+            padding: rem($a) rem($b);
+        } @else {
+            padding: rem($a);
+        }
+    }
+    @if ($type == "pt" or $type == "py") {
+        padding-top: rem($a);
+    }
+    @if ($type == "pb" or $type == "py") {
+        padding-bottom: rem($a);
+    }
+    @if ($type == "pr" or $type == "px") {
+        padding-right: rem($a);
+    }
+    @if ($type == "pl" or $type == "px") {
+        padding-left: rem($a);
+    }
+}
+
+@mixin text-contrast($n) {
+    $color-brightness: round(
+        (red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000
+    );
+    $light-color: round(
+        (red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) /
+            1000
+    );
+
+    @if abs($color-brightness) < ($light-color/2) {
+        color: #ffffff;
+    } @else {
+        color: #000000;
+    }
+}
+@mixin hover-contrast($n) {
+    $color-brightness: round(
+        (red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000
+    );
+    $light-color: round(
+        (red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) /
+            1000
+    );
+
+    @if abs($color-brightness) < ($light-color/2) {
+        background-color: lighten($n, 10%);
+    } @else {
+        background-color: darken($n, 10%);
+    }
+}
+
+@mixin ripple($n) {
+    $color-brightness: round(
+        (red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000
+    );
+    $light-color: round(
+        (red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) /
+            1000
+    );
+
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    span {
+        transform: scale(0);
+        border-radius: $radius-full;
+        position: absolute;
+        opacity: $opacity-70;
+        @if abs($color-brightness) < ($light-color/2) {
+            background-color: lighten($n, 40%);
+        } @else {
+            background-color: lighten($n, 25%);
+        }
+        animation-name: ripple;
+        animation-duration: $duration-x-long;
+    }
+
+    @keyframes ripple {
+        to {
+            opacity: 0;
+            transform: scale(2);
+        }
+    }
+}
+
+@function is-number($value) {
+    @return type-of($value) == "number";
+}
+@function is-absolute-length($value) {
+    @return is-number($value) and
+        index("cm" "mm" "in" "px" "pt" "pc", unit($value)) != null;
+}
+
+@function lh($line-height, $font-size) {
+    @if (is-absolute-length($line-height)) {
+        @return math.div($line-height, $font-size);
+    } @else {
+        @return $line-height;
+    }
+}
+
+@mixin fontSizing(
+    $size: 16px,
+    $leading: 24px,
+    $fontWeight: 400,
+    $kerning: normal
+) {
+    font-size: rem($size);
+
+    @if $leading {
+        line-height: lh($leading, $size);
+    }
+
+    @if $fontWeight {
+        font-weight: $fontWeight;
+    }
+
+    @if $kerning {
+        letter-spacing: $kerning;
+    }
+}
+
+@mixin below($amount) {
+    // Above inclusive
+    @media screen and (max-width: $amount) {
+        @content;
+    }
+}
+@mixin between($a1, $a2) {
+    // Between inclusive
+    @media screen and (min-width: $a1) and (max-width: $a2) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media screen and (min-width: $breakpoint-sm) {
+        @content;
+    }
+}
+@mixin md {
+    @media screen and (min-width: $breakpoint-md) {
+        @content;
+    }
+}
+@mixin lg {
+    @media screen and (min-width: $breakpoint-lg) {
+        @content;
+    }
+}
+@mixin xl {
+    @media screen and (min-width: $breakpoint-xl) {
+        @content;
+    }
+}
+@mixin max {
+    @media screen and (min-width: $breakpoint-2xl) {
+        @content;
+    }
+}

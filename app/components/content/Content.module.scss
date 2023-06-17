@@ -1,0 +1,115 @@
+@import "@styles/utilities";
+
+.content {
+    h1 {
+        @include fontSizing($font-6xl, $leading-tight, $font-black);
+        @include size(mb, 12);
+
+        @include md {
+            @include fontSizing($font-8xl, $leading-tight, $font-black);
+            @include size(mb, 16);
+        }
+
+        @include lg {
+            @include fontSizing($font-10xl, $leading-tight, $font-black);
+            @include size(mb, 20);
+        }
+    }
+    h2 {
+        @include fontSizing($font-4xl, $leading-tight, $font-bold);
+        @include size(mb, 12);
+
+        @include md {
+            @include fontSizing($font-6xl, $leading-tight, $font-bold);
+        }
+
+        @include lg {
+            @include fontSizing($font-8xl, $leading-tight, $font-bold);
+            @include size(mb, 20);
+        }
+    }
+    h3 {
+        @include fontSizing(
+            $font-3xl,
+            $leading-tight,
+            $font-bold,
+            $tracking-tight
+        );
+        @include size(mb, 12);
+
+        @include md {
+            @include fontSizing(
+                $font-5xl,
+                $leading-tight,
+                $font-bold,
+                $tracking-tight
+            );
+        }
+
+        @include lg {
+            @include fontSizing(
+                $font-7xl,
+                $leading-tight,
+                $font-bold,
+                $tracking-tight
+            );
+            @include size(mb, 20);
+        }
+    }
+    h4 {
+        @include fontSizing($font-2xl, $leading-tight, $font-bold);
+        @include size(mb, 12);
+
+        @include md {
+            @include fontSizing($font-4xl, $leading-tight, $font-bold);
+        }
+
+        @include lg {
+            @include fontSizing($font-6xl, $leading-tight, $font-bold);
+            @include size(mb, 20);
+        }
+    }
+    h5 {
+        @include fontSizing($font-xl, $leading-tight, $font-bold);
+        @include size(mb, 12);
+    }
+    h6 {
+        @include fontSizing($font-7xl, $leading-snug, $font-bold);
+    }
+    p {
+        @include fontSizing($font-lg, $leading-normal, $font-normal);
+        @include size(mb, 12);
+
+        @include md {
+            @include size(mb, 16);
+        }
+        @include md {
+            @include size(mb, 24);
+        }
+    }
+}
+
+.spacing {
+    .top {
+    }
+    .bottom {
+    }
+}
+
+.add-content {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    border-radius: $radius-xl;
+    @include size("py", 30);
+    @include size("m", 10);
+    color: palette(neutral-300);
+    border: 3px dashed palette(neutral-300, 0.25);
+    transition: border-color $duration-normal $ease-out,
+        color $duration-normal $ease-out;
+
+    &:hover {
+        color: palette(neutral-500);
+        border-color: palette(neutral-200);
+    }
+}

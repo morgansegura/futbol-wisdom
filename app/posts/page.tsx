@@ -1,6 +1,6 @@
 // [Hooks]
 import { usePostData } from "@hooks/useData";
-import Content from "@components/content/Content";
+import Content from "@app/components/content/Content";
 
 export async function generateMetadata({ params }: any) {
     const content = await usePostData(params);
@@ -17,9 +17,12 @@ export default async function Page({ params }: any) {
     const content = await usePostData(params);
 
     return (
-        <Content
-            type="post"
-            data={content}
-        />
+        <>
+            <h1>Just a post Template</h1>
+            {/* <Content
+                    type="page"
+                    data={content}
+                /> */}
+        </>
     );
 }
